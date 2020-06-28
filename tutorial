@@ -18,10 +18,10 @@ pipeline {
             }
         }
     }
-#     post {
-#         always {
-#             sh 'rm -rf *'
-#         }
+//     post {
+//        always {
+//             sh 'rm -rf *'
+//         }
   
-#     }
+//     }
 }

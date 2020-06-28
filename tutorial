@@ -3,17 +3,16 @@ pipeline {
 
     stages {
         stage ('terraform init'){
-            environment { 
-                AWS_ACCESS_KEY_ID = credentials('ACCESS_KEY') 
-                AWS_SECRET_ACCESS_KEY = credentials('SECRET_KEY') 
-            }
+
             steps {
-                sh 'echo AWS_ACCESS_KEY_ID $AWS_ACCESS_KEY_ID'
-                sh 'echo AWS_SECRET_ACCESS_KEY $AWS_SECRET_ACCESS_KEY'
                 sh 'terraform init'
             }
         }
         stage  ("terraform apply") {
+            environment { 
+                AWS_ACCESS_KEY_ID = credentials('ACCESS_KEY') 
+                AWS_SECRET_ACCESS_KEY = credentials('SECRET_KEY') 
+            }
             steps {
                 sh 'terraform apply -auto-approve'
             }

@@ -3,8 +3,12 @@ pipeline {
 
     stages {
         stage ('terraform init'){
-
+            environment { 
+                AWS_ACCESS_KEY_ID = credentials('ACCESS_KEY') 
+                AWS_SECRET_ACCESS_KEY = credentials('SECRET_KEY') 
+            }
             steps {
+                sh 'printenv'
                 sh 'terraform init'
             }
         }

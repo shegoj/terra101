@@ -8,6 +8,6 @@ resource "aws_instance" "test-instance" {
   key_name      = "june_devops"
 
   tags = {
-    Name = "Development Server"
+    Name = "DevBox"
   }
 }
